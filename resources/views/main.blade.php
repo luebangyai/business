@@ -2,11 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     @include('partials.head')
     <body class="antialiased">
-      
-
         @include('pages.booking')
-     
-
         <script src="/vendors/js/vendor.bundle.base.js"></script>
         <script src="/js/off-canvas.js"></script>
         <script src="/js/hoverable-collapse.js"></script>

@@ -23,17 +23,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $data['content']['header'] = Content::where('type', 'header')->first();
-        $data['content']['map'] = Content::where('type', 'map')->first();
-        $data['content']['station1'] = Content::select('detail')->where('type', 'listMap')->where('sort', 1)->first();
-        $data['content']['station2'] = Content::select('detail')->where('type', 'listMap')->where('sort', 2)->first();
-        $data['content']['station3'] = Content::select('detail')->where('type', 'listMap')->where('sort', 3)->first();
-        $data['content']['station4'] = Content::select('detail')->where('type', 'listMap')->where('sort', 4)->first();
-
-        $data['rooms']['small'] = Room::where('type', 'small')->orderBy('name', 'asc')->get();
-        $data['rooms']['medium'] = Room::where('type', 'medium')->orderBy('name', 'asc')->get();
-        $data['rooms']['large'] = Room::where('type', 'large')->orderBy('name', 'asc')->get();
-
+        $data['slides'] = Content::where('type', 'slide')->orderBy('sort', 'asc')->get();
         return view('booking')->with($data);
     }
 

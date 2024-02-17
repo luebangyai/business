@@ -6,7 +6,7 @@
        @include('partials.header')
 
         @include('pages.booking')
-
+        <div style="margin-bottom: 60px;"></div>
         @include('partials.footer')
         <script src="/vendors/js/vendor.bundle.base.js"></script>
         <script src="/js/off-canvas.js"></script>

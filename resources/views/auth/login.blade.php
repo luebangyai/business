@@ -26,6 +26,7 @@
   <!-- Template Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
     @include('partials.head')
+
     <body class="antialiased">
 
       @include('partials.header')

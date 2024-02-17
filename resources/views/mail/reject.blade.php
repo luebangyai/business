@@ -111,7 +111,7 @@
 
         <div style="margin-top: 20px; margin-bottom: 20px;">
             <div style="text-align: center;">
-                <img src="https://tijmeetingroom.com/images/logo.png" style="width:50%; max-width:80px;">
+                <img src="https://sinrachasit.com/images/logo.png" style="width:50%; max-width:80px;">
             </div>
             <div>
                 <h3>ระบบแจ้งการลงทะเบียนจองห้องประชุม</h3>

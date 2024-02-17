@@ -5,35 +5,44 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('backend.record') }}">
+                    <a href="{{ route('backend.our.product.index') }}">
                         <img src="/images/logo.png" alt="" class="block h-9 w-auto fill-current text-gray-800">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                @if(Auth::user()->hasRole('admin|management|superadmin'))
+               
+                    {{--  <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('backend.home')" :active="request()->routeIs('backend.home')">
+                          จัดการ Home
+                        </x-nav-link>
+                    </div>  --}}
+             
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('backend.calendar')" :active="request()->routeIs('backend.calendar')">
-                            ปฏิทินการจอง
+                        <x-nav-link :href="route('backend.our.product.index')">
+                          จัดการผลิตภัณฑ์ของเรา
                         </x-nav-link>
                     </div>
-                @endif
-                @if(Auth::user()->hasRole('admin|management|superadmin'))
+             
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('backend.record')" :active="request()->routeIs('backend.record')">
-                            จัดการการจอง
+                        <x-nav-link :href="route('backend.our.product.index', ['type' => 'download'])">
+                          จัดการดาวน์โหลด
                         </x-nav-link>
                     </div>
-                @endif
-                @if(Auth::user()->hasRole('management|superadmin'))
+            
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('backend.history')" :active="request()->routeIs('backend.history')">
-                            ประวัติการจอง
+                        <x-nav-link :href="route('backend.our.product.index', ['type' => 'blog'])">
+                          จัดการบทความ
                         </x-nav-link>
                     </div>
-                @endif
-                @if(Auth::user()->hasRole('superadmin'))
-                <div class="hidden space-x-8 sm:-my-px sm:flex sm:items-center sm:ml-10 mt-1">
+                
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('backend.our.product.index', ['type' => 'slide'])">
+                          จัดการสไลด์
+                        </x-nav-link>
+                    </div> 
+            
+                {{--  <div class="hidden space-x-8 sm:-my-px sm:flex sm:items-center sm:ml-10 mt-1">
                     <x-dropdown align="left" width="48">
                         <x-slot name="trigger">
                             <x-nav-link class="items-center px-2 py-3 text-sm font-medium text-dark bg-white">
@@ -47,7 +56,7 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('backend.room.index')" >
+                            <x-dropdown-link :href="route('backend.home')" >
                                 ห้องประชุม
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('backend.content.index', ['type' => 'header'])">
@@ -58,8 +67,8 @@
                             </x-dropdown-link>
                         </x-slot>
                     </x-dropdown>
-                </div>
-                @endif
+                </div>  --}}
+          
 
             </div>
 
@@ -114,38 +123,28 @@
         <div class="pt-2 pb-3 space-y-1">
 
 
-            @if(Auth::user()->hasRole('admin|management|superadmin'))
-                <x-responsive-nav-link :href="route('backend.calendar')" :active="request()->routeIs('backend.calendar')">
-                    ปฏิทินการจอง
+              
+                {{--  <x-responsive-nav-link :href="route('backend.home')" :active="request()->routeIs('backend.home')">
+                  จัดการ Home
+                </x-responsive-nav-link>  --}}
+         
+                <x-responsive-nav-link :href="route('backend.our.product.index')" :active="request()->routeIs('backend.our.product.index')">
+                  จัดการผลิตภัณฑ์ของเรา
                 </x-responsive-nav-link>
-            @endif
-            @if(Auth::user()->hasRole('admin|superadmin'))
-                <x-responsive-nav-link :href="route('backend.record')" :active="request()->routeIs('backend.record')">
-                    จัดการการจอง
+          
+                <x-responsive-nav-link :href="route('backend.our.product.index', ['type' => 'download'])" :active="request()->routeIs('backend.our.product.index')">
+                  จัดการดาวน์โหลด
                 </x-responsive-nav-link>
-            @endif
-            @if(Auth::user()->hasRole('management|superadmin'))
-                <x-responsive-nav-link :href="route('backend.history')" :active="request()->routeIs('backend.history')">
-                    ประวัติการจอง
+           
+                <x-responsive-nav-link :href="route('backend.our.product.index', ['type' => 'blog'])" :active="request()->routeIs('backend.our.product.index')">
+                  จัดการบทความ
                 </x-responsive-nav-link>
-            @endif
 
-            @if(Auth::user()->hasRole('superadmin'))
-                <hr>
-                <div class="mt-3 ml-2 mb-2">
-                    <h3 class="text-dark">จัดการ</h3>
-                </div>
-                <x-responsive-nav-link :href="route('backend.room.index')" :active="request()->routeIs('backend.room')">
-                    ห้องประชุม
+                <x-responsive-nav-link :href="route('backend.our.product.index', ['type' => 'slide'])" :active="request()->routeIs('backend.our.product.index')">
+                  จัดการสไลด์
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('backend.content.index', ['type' => 'header'])" :active="request()->routeIs('backend.content')">
-                    ส่วนแรก
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('backend.content.index', ['type' => 'map'])" :active="request()->routeIs('backend.content')">
-                    ส่วนการติดต่อ
-                </x-responsive-nav-link>
-            @endif
-
+          
+           
         </div>
 
 

@@ -8,12 +8,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+
 use App\Models\Booking;
+use App\Mail\BookingMail;
+use App\Models\Content;
+use App\Models\Room;
 
 class OurProductsController extends Controller
 {
     public function index(){
-        $data['type'] = request()->get('type') ? request()->get('type') : 'small';
+        $data['ourproducts'] = Content::where('type', 'our-product')->orderBy('sort', 'asc')->get();
         return view('ourproducts')->with($data);
     }
 
@@ -36,6 +40,7 @@ class OurProductsController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {

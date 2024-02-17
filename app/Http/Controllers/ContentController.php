@@ -85,20 +85,6 @@ class ContentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $type  = isset($request->type) ? $request->type : '';
-        $content  = Content::where('id', $request->content_id)->first();
-        if(isset($request->cover) && $request->hasFile('cover'))
-        {
-            $imageId = date('d').uniqid().date('h').date('i').date('s');
-            $path    = $this->upload_image($request, $imageId, 'cover/images/');
-            $content->cover   = $path;
-        }
-        $content->name    = $request->name;
-        $content->detail  = $request->detail;
-        $content->update();
-
-        $data['type'] = $type;
-        return Redirect::route('backend.content.index', ['type' => $type])->with($data);
     }
 
     /**

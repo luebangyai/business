@@ -1,5 +1,6 @@
 <!-- Copyright Start -->
-<div class="container-fluid px-0" style="background-color: #000000 !important;">
+
+<div class="container-fluid px-0" style="background-color: #000000 !important;" id="footer">
   <div class="row g-0 d-none d-lg-flex">
       <div class="col-lg-6 ps-5 text-start">
           <div class="h-100 d-inline-flex align-items-center text-white">

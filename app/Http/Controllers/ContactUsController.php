@@ -13,8 +13,7 @@ use App\Models\Booking;
 class ContactUsController extends Controller
 {
     public function index(){
-        $data['type'] = request()->get('type') ? request()->get('type') : 'small';
-        return view('contactus')->with($data);
+        return view('contactus');
     }
 
     public function calendar() {

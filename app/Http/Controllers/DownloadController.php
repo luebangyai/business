@@ -9,11 +9,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Booking;
+use App\Mail\BookingMail;
+use App\Models\Content;
+use App\Models\Room;
 
 class DownloadController extends Controller
 {
     public function index(){
-        $data['type'] = request()->get('type') ? request()->get('type') : 'small';
+        $data['downloads'] = Content::where('type', 'download')->orderBy('sort', 'asc')->get();
         return view('download')->with($data);
     }
 

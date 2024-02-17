@@ -56,7 +56,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-    'domain' => env('APP_DOMAIN', 'https://tijmeetingroom.com/'),
+    'domain' => env('APP_DOMAIN', 'https://sinrachasit.com/'),
 
     'asset_url' => env('ASSET_URL'),
 
